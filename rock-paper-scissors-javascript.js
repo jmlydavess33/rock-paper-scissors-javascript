@@ -1,6 +1,3 @@
-
-
-    
 const getUserChoice = userInput => {
     const lowerCaseInput = userInput.toLowerCase();
     if (
@@ -20,7 +17,6 @@ const getUserChoice = userInput => {
 
 
 
-
 const computerPlay = () => {
     const ranNum = Math.floor(Math.random()*3);
     switch (ranNum) {
@@ -33,12 +29,6 @@ const computerPlay = () => {
     }
   };
   
-
-
-
-
-
-
 
 
 
@@ -80,13 +70,6 @@ const computerPlay = () => {
 
 
 
-
-
-
-
-
-
-
   const Game = () => {
     let playerScore = 0;
     let computerScore = 0;
@@ -108,7 +91,7 @@ const computerPlay = () => {
 
         if (userResponse === null || userResponse.trim() === "") {
             alert("You canceled the game or didn't enter anything. Goodbye!");
-            return; // exit the function if the user cancels or doesn't enter anything
+            return; 
         }
 
         const computerSelection = computerPlay();
@@ -142,9 +125,6 @@ const computerPlay = () => {
     } else {
         alert('It\'s a Tie! 🤝 A worthy opponent indeed. Are you up for another round to break the deadlock?');
     }
-
-
-
 
 
 
