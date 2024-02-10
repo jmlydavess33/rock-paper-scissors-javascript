@@ -4,7 +4,7 @@ const getUserChoice = userInput => {
         lowerCaseInput === 'rock' ||
         lowerCaseInput === 'paper' ||
         lowerCaseInput === 'scissors' ||
-        lowerCaseInput === 'bomb'
+        lowerCaseInput === 'bomb' //this is a powerful weapon 
         ) {
         return lowerCaseInput;
         } else {
