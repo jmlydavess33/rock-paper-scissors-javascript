@@ -79,11 +79,11 @@ const game = () => {
 
         alert(result);
 
-        if (result.includes('you lose')) {
+        if (result.includes('Lose')) {
             computerScore++;
         } else if (result.includes('congratulations')) {
             playerScore++;
-        } else { (result.includes('was a tie'))
+        } else { (result.includes('tie'))
             tieScore++;
         }
         
