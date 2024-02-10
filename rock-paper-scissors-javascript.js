@@ -8,7 +8,7 @@ const getUserChoice = userInput => {
             ) {
             return lowerCaseInput;
             } else {
-            console.log('error');
+            console.log('error: Invalid input. Please enter "rock," "paper," or "scissors."');
             return null;
             }
 };
