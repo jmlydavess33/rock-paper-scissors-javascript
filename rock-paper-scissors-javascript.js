@@ -1,16 +1,16 @@
 const getUserChoice = userInput => {
     const lowerCaseInput = userInput.trim().toLowerCase();
-        if (
-            lowerCaseInput === 'rock' ||
-            lowerCaseInput === 'paper' ||
-            lowerCaseInput === 'scissors' ||
-            lowerCaseInput === 'bomb'
-            ) {
-            return lowerCaseInput;
-            } else {
-            console.log('error: Invalid input. Please enter "rock," "paper," or "scissors."');
-            return 'invalid';
-            }
+    if (
+        lowerCaseInput === 'rock' ||
+        lowerCaseInput === 'paper' ||
+        lowerCaseInput === 'scissors' ||
+        lowerCaseInput === 'bomb'
+        ) {
+        return lowerCaseInput;
+        } else {
+        console.log('error: Invalid input. Please enter "rock," "paper," or "scissors."');
+        return 'invalid';
+        }
 };
 
 const computerPlay = () => {
