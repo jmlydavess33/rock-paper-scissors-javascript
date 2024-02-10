@@ -1,45 +1,32 @@
 const getUserChoice = userInput => {
     const lowerCaseInput = userInput.toLowerCase();
-    if (
-        lowerCaseInput === 'rock' ||
-        lowerCaseInput === 'paper' ||
-        lowerCaseInput === 'scissors' ||
-        lowerCaseInput === 'bomb'
-    ) {
-        return lowerCaseInput;
-    } else {
-        console.log('error');
-    }
+        if (
+            lowerCaseInput === 'rock' ||
+            lowerCaseInput === 'paper' ||
+            lowerCaseInput === 'scissors' ||
+            lowerCaseInput === 'bomb'
+            ) {
+            return lowerCaseInput;
+            } else {
+            console.log('error');
+            }
 };
-
-
-
-
-
 
 const computerPlay = () => {
     const ranNum = Math.floor(Math.random()*3);
-    switch (ranNum) {
-      case 0:
-      return 'rock';
-      case 1:
-      return 'paper';
-      case 2:
-      return 'scissors';
+        switch (ranNum) {
+        case 0:
+        return 'rock';
+        case 1:
+        return 'paper';
+        case 2:
+        return 'scissors';
+        }
+};
+  
+const playRound = (playerSelection, computerSelection) => {
+    if(playerSelection === computerSelection){return 'Neither team managed to secure a victory, and the game ended in a draw';
     }
-  };
-  
-
-
-
-
-
-
-
-  const playRound = (playerSelection, computerSelection) => {
-    if(playerSelection === computerSelection){return 'Neither team managed to secure a victory, and the game ended in a draw';}
-  
-    
   
     if(playerSelection === 'rock') {
       if(computerSelection === 'paper') {return 'You Lose! Paper beats Rock'}
@@ -49,47 +36,31 @@ const computerPlay = () => {
     if(playerSelection === 'paper'){
       if(computerSelection === 'scissors'){return 'You Lose! Scissors beats Paper'}
       else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
-  
     }
   
-   if(playerSelection === 'scissors'){
+    if(playerSelection === 'scissors'){
     if(computerSelection === 'rock'){return 'You Lose! Rock beats Scissors'}
     else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
-   }
-  
-  if(playerSelection === 'bomb'){return 'Wow, congratulations! You have officially earned the title of a winner!'} //this is a powerful weapon
-   
-  
-  };
+    }
 
+    if(playerSelection === 'bomb'){
+        return 'Wow, congratulations! You have officially earned the title of a winner!'
+    } //this is a powerful weapon  
+};
 
-
-
-
-
-
-
-
-  const Game = () => {
+const game = () => {
     let playerScore = 0;
     let computerScore = 0;
-    let TieScore = 0;
+    let tieScore = 0;
 
   
 
-        for (let i = 0; i < 5; i++) {
-            const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
+    for (let i = 0; i < 5; i++) {
+        const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
                 i + 1
             }:\nEnter your choice (rock, paper, scissors)`, "Type your choice here");
-        
 
-
-
-
-
-
-
-        if (userResponse === null || userResponse.trim() === "") {
+    if (userResponse === null || userResponse.trim() === "") {
             alert("You canceled the game or didn't enter anything. Goodbye!");
             return; 
         }
@@ -108,12 +79,12 @@ const computerPlay = () => {
         } else if (result.toLowerCase().includes('congratulations')) {
             playerScore++;
         } else { (result.toLowerCase().includes('was a tie'))
-            TieScore++;
+            tieScore++;
         }
         
     }
 
-    alert('\nGame Over!\nYour score: ' + playerScore + '\nComputer\'s score: ' + computerScore + '\nTie :' + TieScore );
+    alert('\nGame Over!\nYour score: ' + playerScore + '\nComputer\'s score: ' + computerScore + '\nTie :' + tieScore );
 
    
 
@@ -125,13 +96,9 @@ const computerPlay = () => {
     } else {
         alert('It\'s a Tie! 🤝 A worthy opponent indeed. Are you up for another round to break the deadlock?');
     }
-
-
-
-
 };
 
-Game();
+game();
 
 
 
