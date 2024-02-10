@@ -9,6 +9,7 @@ const getUserChoice = userInput => {
             return lowerCaseInput;
             } else {
             console.log('error');
+            return null;
             }
 };
 
