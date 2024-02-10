@@ -9,7 +9,7 @@ const getUserChoice = userInput => {
             return lowerCaseInput;
             } else {
             console.log('error: Invalid input. Please enter "rock," "paper," or "scissors."');
-            return null;
+            return 'invalid';
             }
 };
 
@@ -26,6 +26,10 @@ const computerPlay = () => {
 };
   
 const playRound = (playerSelection, computerSelection) => {
+    if (playerSelection === 'invalid') {
+        return 'Invalid input. Please enter "rock," "paper," or "scissors."';
+    }
+
     if(playerSelection === computerSelection){return 'Neither team managed to secure a victory, and the game ended in a draw';
     }
   
