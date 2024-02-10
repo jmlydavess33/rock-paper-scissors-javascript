@@ -63,9 +63,9 @@ const game = () => {
     for (let i = 0; i < 5; i++) {
         const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
                 i + 1
-        }:\nEnter your choice (rock, paper, scissors)`, "Type your choice here");
+        }:\nEnter your choice (rock, paper, scissors)`);
 
-    if (userResponse === null || userResponse.trim() === "") {
+        if (userResponse === null || userResponse.trim() === "") {
             alert("You canceled the game or didn't enter anything. Goodbye!");
             return; 
         }
@@ -86,7 +86,6 @@ const game = () => {
         } else { (result.includes('tie'))
             tieScore++;
         }
-        
     }
 
     alert('\nGame Over!\nYour score: ' + playerScore + '\nComputer\'s score: ' + computerScore + '\nTie :' + tieScore );
@@ -101,18 +100,3 @@ const game = () => {
 };
 
 game();
-
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
