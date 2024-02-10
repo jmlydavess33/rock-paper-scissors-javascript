@@ -30,22 +30,32 @@ const playRound = (playerSelection, computerSelection) => {
         return 'Invalid input. Please enter "rock," "paper," or "scissors."';
     }
 
-    if(playerSelection === computerSelection){return 'Neither team managed to secure a victory, and the game ended in a draw';
+    if(playerSelection === computerSelection){
+        return 'Neither team managed to secure a victory, and the game ended in a draw';
     }
   
     if(playerSelection === 'rock') {
-      if(computerSelection === 'paper') {return 'You Lose! Paper beats Rock'}
-      else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
+        if(computerSelection === 'paper') {
+        return 'You Lose! Paper beats Rock'
+        } else
+        { return 'Wow, congratulations! You have officially earned the title of a winner!'
+        }
     }
   
     if(playerSelection === 'paper'){
-      if(computerSelection === 'scissors'){return 'You Lose! Scissors beats Paper'}
-      else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
+        if(computerSelection === 'scissors'){
+        return 'You Lose! Scissors beats Paper'
+        } else 
+        { return 'Wow, congratulations! You have officially earned the title of a winner!'
+        }
     }
   
     if(playerSelection === 'scissors'){
-    if(computerSelection === 'rock'){return 'You Lose! Rock beats Scissors'}
-    else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
+        if(computerSelection === 'rock')
+        { return 'You Lose! Rock beats Scissors'
+        } else {
+        return 'Wow, congratulations! You have officially earned the title of a winner!'
+        }
     }
 
     if(playerSelection === 'bomb'){
@@ -57,8 +67,6 @@ const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     let tieScore = 0;
-
-  
 
     for (let i = 0; i < 5; i++) {
         const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
