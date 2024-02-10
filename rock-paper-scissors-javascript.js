@@ -1,5 +1,5 @@
 const getUserChoice = userInput => {
-    const lowerCaseInput = userInput.toLowerCase();
+    const lowerCaseInput = userInput.trim().toLowerCase();
         if (
             lowerCaseInput === 'rock' ||
             lowerCaseInput === 'paper' ||
