@@ -1,28 +1,12 @@
-const getUserChoice = userInput => {
-    const lowerCaseInput = userInput.trim().toLowerCase();
-    if (    
-        lowerCaseInput === 'rock' ||
-        lowerCaseInput === 'paper' ||
-        lowerCaseInput === 'scissors' ||
-        lowerCaseInput === 'bomb' //this is a powerful weapon 
-        ) {
-        return lowerCaseInput;
-        } else {
-        console.log('error: Invalid input. Please enter "rock," "paper," or "scissors."');
+const playerSelection = () => {
+    const userInput = prompt('Enter your choice (rock, paper, scissors)').trim().toLowerCase();
+
+    if (userInput === null || userInput === "" || !['rock', 'paper', 'scissors', 'bomb'].includes(userInput)) {
+        alert("You entered an invalid choice or canceled the game.");
         return 'invalid';
-        }
+    }
+    return userInput;
 };
-
-/*
-const getUserChoice = userInput => {
-    userInput = userInput.toLowerCase();
-    if(userInput ==='rock' || userInput ==='paper' || userInput ==='scissors' || userInput === 'bomb') {return userInput;}
-    else {console.log('error');}
-    };
-    
-*/
-
-
 
 const computerPlay = () => {
     const ranNum = Math.floor(Math.random()*3);
@@ -36,16 +20,13 @@ const computerPlay = () => {
         }
 };
 
-
-
-  
 const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === 'invalid') {
-        return 'Invalid input. Please enter "rock," "paper," or "scissors."';
+        return 'Please enter "rock," "paper," or "scissors."';
     }
 
     if(playerSelection === computerSelection){
-        return 'it\'s a tie';
+        return 'It\'s a tie';
     }
   
     if(playerSelection === 'rock') {
@@ -83,21 +64,15 @@ const game = () => {
     let tieScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
-                i + 1
-        }:\nEnter your choice (rock, paper, scissors)`);
+        alert(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${i + 1}: Click "ok" to start`);
 
-        if (userResponse === null || userResponse.trim() === "") {
-            alert("You canceled the game or didn't enter anything. Goodbye!");
-            return; 
-        }
+        const userChoice = playerSelection();
 
         const computerSelection = computerPlay();
-        const playerSelection = getUserChoice(userResponse);
 
-        alert(`Round ${i + 1}\nYou select: ${playerSelection}\nComputer selects: ${computerSelection}`);
+        alert(`Round ${i + 1}\nYou select: ${userChoice}\nComputer selects: ${computerSelection}`);
 
-        const result = playRound(playerSelection, computerSelection);
+        const result = playRound(userChoice, computerSelection);
 
         alert(result);
 
@@ -105,7 +80,7 @@ const game = () => {
             computerScore++;
         } else if (result.includes('congratulations')) {
             playerScore++;
-        } else { (result.includes('tie'))
+        } else {
             tieScore++;
         }
     }
@@ -115,9 +90,9 @@ const game = () => {
     if (playerScore > computerScore) {
         alert('Congratulations! 🎉 You are the ultimate champion!');
     } else if (playerScore < computerScore) {
-        alert('YOU LOST THE GAME! 😢 While this time may not have been your victory, there\'s always room for improvement. Are you ready for a rematch to reclaim your triumph? Simply refresh your browser or press F5 to start again.');
+        alert('YOU LOST THE GAME! 😢 Are you ready for a rematch to reclaim your triumph? Simply refresh your browser or press F5 to start again.');
     } else {
-        alert('It\'s a Tie! 🤝 A worthy opponent indeed. Are you up for another round to break the deadlock?');
+        alert('It\'s a Tie! 🤝');
     }
 };
 
