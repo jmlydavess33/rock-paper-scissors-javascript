@@ -1,7 +1,7 @@
 const playerSelection = () => {
   let userInput;
   do {
-      userInput = prompt('Enter your choice (rock, paper, scissors)').trim().toLowerCase();
+    userInput = prompt('Enter your choice (rock, paper, scissors)').trim().toLowerCase();
   } while (!['rock', 'paper', 'scissors', 'bomb'].includes(userInput));
   return userInput;
 };
