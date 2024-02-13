@@ -28,38 +28,46 @@ const computerPlay = () => {
       return 'scissors';
     }
   };
-  
-
-
-
-
-
 
 
   const playRound = (playerSelection, computerSelection) => {
-    if(playerSelection === computerSelection){return 'Neither team managed to secure a victory, and the game ended in a draw';}
-  
-    
-  
+
+   // if(playerSelection === computerSelection){
+    //  return "It's a TIE";
+    //}
+   // else{
+      //switch(playerSelection){
+        //case "rock":
+         // (computerSelection === "scissors") ? "Congratulation You WIN!" : "You Lose";
+         // break;
+        //case "paper":
+         // (computerSelection === "rock") ? "Congratulation You WIN!" : "You Lose";
+         // break;
+        // case "scissors":
+         // (computerSelection === "paper") ? "Congratulation You WIN!" : "You Lose";
+         // break;
+     // }
+
+   // }
     if(playerSelection === 'rock') {
       if(computerSelection === 'paper') {return 'You Lose! Paper beats Rock'}
       else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
     }
-  
+
     if(playerSelection === 'paper'){
       if(computerSelection === 'scissors'){return 'You Lose! Scissors beats Paper'}
       else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
-  
+
     }
-  
+
    if(playerSelection === 'scissors'){
     if(computerSelection === 'rock'){return 'You Lose! Rock beats Scissors'}
     else {return 'Wow, congratulations! You have officially earned the title of a winner!'}
    }
-  
-  if(playerSelection === 'bomb'){return 'Wow, congratulations! You have officially earned the title of a winner!'} //this is a powerful weapon
-   
-  
+
+   if(playerSelection === 'bomb'){return 'Wow, congratulations! You have officially earned the title of a winner!'} //this is a powerful weapon
+
+
   };
 
 
@@ -75,48 +83,38 @@ const computerPlay = () => {
     let computerScore = 0;
     let TieScore = 0;
 
-  
-
-        for (let i = 0; i < 5; i++) {
-            const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
-                i + 1
-            }:\nEnter your choice (rock, paper, scissors)`, "Type your choice here");
-        
 
 
+    for (let i = 0; i < 5; i++) {
+      const userResponse = prompt(`\nWELCOME!!!!\nROCK, PAPER, SCISSORS GAME!!!\nRound ${
+          i + 1
+        }:\nEnter your choice (rock, paper, scissors)`, "Type your choice here");
 
 
+      if (userResponse === null || userResponse.trim() === "") {
+          alert("You canceled the game or didn't enter anything. Goodbye!");
+          return;
+      }
 
+      const computerSelection = computerPlay();
+      const playerSelection = getUserChoice(userResponse);
 
+      alert(`Round ${i + 1}\nYou select: ${playerSelection}\nComputer selects: ${computerSelection}`);
 
-        if (userResponse === null || userResponse.trim() === "") {
-            alert("You canceled the game or didn't enter anything. Goodbye!");
-            return; 
-        }
+      const result = playRound(playerSelection, computerSelection);
 
-        const computerSelection = computerPlay();
-        const playerSelection = getUserChoice(userResponse);
+      alert(result);
 
-        alert(`Round ${i + 1}\nYou select: ${playerSelection}\nComputer selects: ${computerSelection}`);
-
-        const result = playRound(playerSelection, computerSelection);
-
-        alert(result);
-
-        if (result.toLowerCase().includes('you lose')) {
-            computerScore++;
-        } else if (result.toLowerCase().includes('congratulations')) {
-            playerScore++;
-        } else { (result.toLowerCase().includes('was a tie'))
-            TieScore++;
-        }
-        
+      if (result.toLowerCase().includes('you lose')) {
+          computerScore++;
+      } else if (result.toLowerCase().includes('congratulations')) {
+          playerScore++;
+      } else { (result.toLowerCase().includes('was a tie'))
+          TieScore++;
+      }
     }
 
     alert('\nGame Over!\nYour score: ' + playerScore + '\nComputer\'s score: ' + computerScore + '\nTie :' + TieScore );
-
-   
-
 
     if (playerScore > computerScore) {
         alert('Congratulations! 🎉 You emerged as the ultimate champion!');
@@ -127,23 +125,6 @@ const computerPlay = () => {
     }
 
 
-
-
 };
 
 Game();
-
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
