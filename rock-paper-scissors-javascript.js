@@ -1,6 +1,6 @@
 const getUserChoice = userInput => {
     const lowerCaseInput = userInput.trim().toLowerCase();
-    if (
+    if (    
         lowerCaseInput === 'rock' ||
         lowerCaseInput === 'paper' ||
         lowerCaseInput === 'scissors' ||
@@ -13,6 +13,17 @@ const getUserChoice = userInput => {
         }
 };
 
+/*
+const getUserChoice = userInput => {
+    userInput = userInput.toLowerCase();
+    if(userInput ==='rock' || userInput ==='paper' || userInput ==='scissors' || userInput === 'bomb') {return userInput;}
+    else {console.log('error');}
+    };
+    
+*/
+
+
+
 const computerPlay = () => {
     const ranNum = Math.floor(Math.random()*3);
         switch (ranNum) {
@@ -24,6 +35,9 @@ const computerPlay = () => {
         return 'scissors';
         }
 };
+
+
+
   
 const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === 'invalid') {
@@ -31,14 +45,14 @@ const playRound = (playerSelection, computerSelection) => {
     }
 
     if(playerSelection === computerSelection){
-        return 'Neither team managed to secure a victory, and the game ended in a draw';
+        return 'it\'s a tie';
     }
   
     if(playerSelection === 'rock') {
         if(computerSelection === 'paper') {
         return 'You Lose! Paper beats Rock'
         } else
-        { return 'Wow, congratulations! You have officially earned the title of a winner!'
+        { return 'Wow, congratulations! You win!'
         }
     }
   
@@ -46,7 +60,7 @@ const playRound = (playerSelection, computerSelection) => {
         if(computerSelection === 'scissors'){
         return 'You Lose! Scissors beats Paper'
         } else 
-        { return 'Wow, congratulations! You have officially earned the title of a winner!'
+        { return 'Wow, congratulations! You win!'
         }
     }
   
@@ -54,12 +68,12 @@ const playRound = (playerSelection, computerSelection) => {
         if(computerSelection === 'rock')
         { return 'You Lose! Rock beats Scissors'
         } else {
-        return 'Wow, congratulations! You have officially earned the title of a winner!'
+        return 'Wow, congratulations! You win!'
         }
     }
 
     if(playerSelection === 'bomb'){
-        return 'Wow, congratulations! You have officially earned the title of a winner!'
+        return 'Wow, congratulations! You win!'
     } //this is a powerful weapon  
 };
 
@@ -99,7 +113,7 @@ const game = () => {
     alert('\nGame Over!\nYour score: ' + playerScore + '\nComputer\'s score: ' + computerScore + '\nTie :' + tieScore );
 
     if (playerScore > computerScore) {
-        alert('Congratulations! 🎉 You emerged as the ultimate champion!');
+        alert('Congratulations! 🎉 You are the ultimate champion!');
     } else if (playerScore < computerScore) {
         alert('YOU LOST THE GAME! 😢 While this time may not have been your victory, there\'s always room for improvement. Are you ready for a rematch to reclaim your triumph? Simply refresh your browser or press F5 to start again.');
     } else {
