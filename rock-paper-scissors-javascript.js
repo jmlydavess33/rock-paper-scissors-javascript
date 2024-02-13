@@ -90,7 +90,7 @@ const game = () => {
     if (playerScore > computerScore) {
         alert('Congratulations! 🎉 You are the ultimate champion!');
     } else if (playerScore < computerScore) {
-        alert('YOU LOST THE GAME! 😢 Are you ready for a rematch to reclaim your triumph? Simply refresh your browser or press F5 to start again.');
+        alert('YOU LOST THE GAME! 😢 Are you ready for a rematch? Simply refresh your browser or press F5 to start again.');
     } else {
         alert('It\'s a Tie! 🤝');
     }
